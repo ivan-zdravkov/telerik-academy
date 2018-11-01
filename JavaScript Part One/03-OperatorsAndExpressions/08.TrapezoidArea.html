@@ -1,0 +1,30 @@
+﻿<html>
+	<head>
+		<title>Trapezoid Area</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<span>Calculate a trapezoid's area<span><br />
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+            function Area(sideA, sideB, height) {
+                return (((sideA * sideB) / 2) * height);
+            }
+
+            function Trapezoid(a, b, h) {
+                var sideA = a;
+                var sideB = b;
+                var height = h;
+                jsConsole.writeLine("The area of Trapezoid(a = " + sideA + "; b = " + sideB + "; h = " + height + ") = " + Area(sideA, sideB, height));
+            }
+
+            Trapezoid(10, 10, 20);
+            Trapezoid(2, 2, 6);
+            Trapezoid(8, 4, 10);
+
+		</script>
+	</body>
+</html>

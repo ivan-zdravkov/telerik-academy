@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>Value Exchange</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Exchange numbers if the first one is bigger than the second one!</span><br />
+		<label for="inputOne">Number: </label>
+		<input type="text" id="inputOne" /><br />
+		
+		<label for="inputTwo">Number: </label>
+		<input type="text" id="inputTwo" /><br />
+		
+		<input type="button" value="Exchange?" onclick="ExchangeIfFirstIsBigger()" />
+	
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+			function ExchangeIfFirstIsBigger()	{
+				var numberOne = jsConsole.readFloat("#inputOne");
+				var numberTwo = jsConsole.readFloat("#inputTwo");
+				
+				if (numberOne > numberTwo)
+				{
+					numberOne += numberTwo;
+					numberTwo = numberOne - numberTwo;
+					numberOne -= numberTwo;
+				}
+				
+				jsConsole.writeLine("numberOne -> " + numberOne);
+				jsConsole.writeLine("numberTwo -> " + numberTwo);
+				jsConsole.writeLine("");
+			}
+		</script>
+	</body>
+</html>

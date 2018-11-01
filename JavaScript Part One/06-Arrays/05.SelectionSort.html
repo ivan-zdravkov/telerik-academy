@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>Selection Sort</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Use selection sort on an array</span><br />
+		
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+			document.onload(SelectionSort());
+		
+			function SelectionSort() {
+			    var numberOfArrays = 5;
+			    var numberOfElementsInArray = 10;
+			    var rangeOfNumbers = 100;
+
+			    var array = new Array(numberOfArrays);
+			    for (var i = 0; i < array.length; i++) {
+			        array[i] = new Array(numberOfElementsInArray);
+			        for (var j = 0; j < array[i].length; j++) {
+			            array[i][j] = Math.floor((Math.floor(Math.random() * 100))); 
+			        }
+			        jsConsole.writeLine("Original Array: " + array[i].join(", "));
+			        Sort(array[i]);
+			    }
+			}
+
+			function Sort(array) {
+			    for (var i = 0; i < array.length; i++)
+			    {
+			        var index = GetMinIndex(array, i);
+			        var temp = array[i];
+			        array[i] = array[index];
+			        array[index] = temp;
+			    }
+
+			    jsConsole.writeLine("Sorted Array: &nbsp&nbsp" + array.join(", "));
+			    jsConsole.writeLine("");
+			}
+
+			function GetMinIndex(numbers, index) {
+			    var min = numbers[index];
+			    var indexOfMin = index;
+
+			    for (var j = index; j < numbers.length; j++) {
+			        if (min > numbers[j]) {
+			            min = numbers[j];
+			            indexOfMin = j;
+			        }
+			    }
+			    return indexOfMin;
+			}
+		</script>
+	</body>
+</html>

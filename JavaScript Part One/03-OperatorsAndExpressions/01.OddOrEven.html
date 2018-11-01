@@ -1,0 +1,24 @@
+﻿<html>
+	<head>
+		<title>Odd or Even</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<span>Find out if a number is odd or even<span><br />
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+            function IsPrime (number) {
+                ((number & 1) == 1) ? 
+                    jsConsole.writeLine("The number " + number + " is Odd!") :
+                    jsConsole.writeLine("The number " + number + " is Even!");
+            }
+			
+            IsPrime(7);
+            IsPrime(8);
+
+		</script>
+	</body>
+</html>

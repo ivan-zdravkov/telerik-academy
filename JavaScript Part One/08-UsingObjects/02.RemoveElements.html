@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>Remove Elements</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Write a function that removes all elements with a given value</span><br />
+
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+            Array.prototype.remove = function (value) {
+                for (var i = 0; i < this.length; i++)
+                {
+                    if (this[i] == value)
+                    {
+                        this.splice(i, 1);
+                    }
+                }
+            };
+
+            jsConsole.writeLine("Test:");
+            var testArray = [1, 2, 1, 4, 1, 3, 4, 1, 111, 3, 2, 1, "1"];
+            jsConsole.writeLine(testArray.join(", "));
+            jsConsole.writeLine("Removing 1...");
+            testArray.remove(1);
+            jsConsole.writeLine(testArray.join(", "));
+            jsConsole.writeLine("");
+
+            jsConsole.writeLine("Generating a random array...");
+            var sizeOfArray = 20;
+            var valueRange = 10;
+
+            var array = new Array(sizeOfArray);
+            for (var i = 0; i < array.length; i++)
+            {
+                array[i] = Math.floor(Math.random() * 10);
+            }
+            jsConsole.writeLine(array.join(", "));
+
+            var numberToDelete = 3;
+            jsConsole.writeLine("Removing " + numberToDelete + "...");
+            array.remove(numberToDelete);
+            jsConsole.writeLine(array.join(", "));
+
+            numberToDelete = 5;
+            jsConsole.writeLine("Removing " + numberToDelete + "...");
+            array.remove(numberToDelete);
+            jsConsole.writeLine(array.join(", "));
+
+            numberToDelete = 9;
+            jsConsole.writeLine("Removing " + numberToDelete + "...");
+            array.remove(numberToDelete);
+            jsConsole.writeLine(array.join(", "));
+		</script>
+	</body>
+</html>

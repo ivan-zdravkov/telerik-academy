@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>Numbers in Range</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Print the numbers from 1 to N!</span><br />
+		
+		<label for="inputOne">N </label>
+		<input type="text" id="inputOne" /><br />
+		
+		
+		<input type="button" value="Print" onclick="PrintNumbers()" />
+	
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+			function PrintNumbers()	{
+				var number = jsConsole.readFloat("#inputOne");
+				
+				for (var i = 1; i <= number; i++)
+				{
+					jsConsole.write(i + ", ");
+				}
+			}
+		</script>
+	</body>
+</html>

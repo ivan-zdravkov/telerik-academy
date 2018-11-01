@@ -1,0 +1,117 @@
+<html>
+	<head>
+		<title>Quadratic Equation</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Enter a, b, c of the quadratic equation a*x&#178 + b*x + c = 0!</span></br>
+		
+		<label for="inputOne">a: </label>
+		<input type="text" id="inputOne" /><br />
+		
+		<label for="inputTwo">b: </label>
+		<input type="text" id="inputTwo" /><br />
+		
+		<label for="inputThree">c: </label>
+		<input type="text" id="inputThree" /><br />
+		
+		<input type="button" value="Calculate" onclick="Calculate()" />
+		
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+			function Calculate() {
+				var a = jsConsole.readFloat("#inputOne");
+				var b = jsConsole.readFloat("#inputTwo");
+				var c = jsConsole.readFloat("#inputThree");
+				
+				var D;
+				var x1;
+				var x2;
+				
+				jsConsole.writeLine("");
+				if (a == 0)
+				{
+					if (b == 0)
+					{
+						if (c == 0)
+						{
+							jsConsole.writeLine("a = 0, b = 0, c = 0");
+							jsConsole.writeLine("Every x is a solution!");
+							return;
+						}
+						else 
+						{	
+							jsConsole.writeLine("a = 0, b = 0, c != 0");
+							jsConsole.writeLine("There is no solution");
+							return;
+						}
+					}
+					else if (c == 0)
+					{
+						jsConsole.writeLine("a = 0, b != 0, c = 0");
+						x1 = 0;
+						x2 = 0;
+					}
+				}
+				else if (b == 0)
+				{
+					if (c == 0)
+					{
+						jsConsole.writeLine("a != 0, b = 0, c = 0");
+						x1 = 0;
+						x2 = 0;
+					}
+					else 
+					{
+						jsConsole.writeLine("a != 0, b = 0, c!= 0");
+						if (( -c / a) >= 0)
+						{
+							jsConsole.writeLine("(-c / a) >= 0");
+							x1 = Math.sqrt(-c / a);
+							x2 = -x1;
+						}
+						else 
+						{
+							jsConsole.writeLine("(-c / a) < 0)");
+							jsConsole.writeLine("There is no solution!");
+						}
+					}
+				}
+				else if (c == 0)
+				{
+					jsConsole.writeLine("a != 0, b != 0, c = 0");
+					x1 = 0;
+					x2 = -b / a;
+				}
+				else 
+				{
+					jsConsole.writeLine(" a != 0, b != 0, c != 0");
+					D = b*b - 4*a*c;
+					if (D < 0)
+					{
+						jsConsole.writeLine("The Descriminant is less than 0. There is no solution!");
+						return;
+					}
+					else if (D == 0)
+					{
+						jsConsole.writeLine("The Descriminant is equal to 0!");
+						x1 = -b / 2*a;
+						x2 = -b / 2*a;
+					}
+					else
+					{
+						jsConsole.writeLine("The Descriminant is bigger than 0!");
+						x1 = (-b + Math.sqrt(D)) / (2 * a);
+						x2 = (-b - Math.sqrt(D)) / (2 * a);
+					}
+				}
+				
+				jsConsole.writeLine("x1 = " + x1);
+				jsConsole.writeLine("x2 = " + x2);
+			}
+		</script>
+	</body>
+</html>

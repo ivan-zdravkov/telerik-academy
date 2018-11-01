@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>FieldsetsNestedTables</title>
+		<link href="styles.css" type="text/css" rel="stylesheet"/>
+        <script>
+            function printValue(sliderID, textbox)
+            {
+                var x = document.getElementById(textbox);
+                var y = document.getElementById(sliderID);
+                x.value = y.value;
+            }
+            window.onload = function ()
+            {
+                printValue('slider1', 'rangeValue1');
+                printValue('slider2', 'rangeValue2');
+                printValue('slider3', 'rangeValue3');
+                printValue('slider4', 'rangeValue4');
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <div>
+                <h1>
+                    <a href="#">Apple</a>&nbsp
+                    <a href="#">Toshiba</a>&nbsp
+                    <a href="#">Lenovo</a>&nbsp
+                    <a href="#">Dell</a>&nbsp
+                    <a href="#">Asus</a>&nbsp
+                    <a href="#">Acer</a>&nbsp
+                    <a href="#">HP</a>
+                </h1>
+            </div>
+            <hr />
+        </header>
+        <section>
+            <div class="Macs">
+                <form>
+                    <fieldset class="left">
+                        <legend>Apple MacBook Air</legend>
+                        <img src="Images/mac.jpg" />
+                        <div class="info">
+                            <p>
+                                64 GB SSD <br /><br />
+                                2 GB DDR <br /><br />
+                                Intel Core i5
+                            </p>
+                        </div>
+                        <div class="price">
+                            <span>1300 USD</span>
+                        </div>
+                    </fieldset>
+                    <fieldset class="right">
+                        <legend>Apple MacBook Air</legend>
+                        <img src="Images/mac.jpg" />
+                        <div class="info">
+                            <p>
+                                64 GB SSD <br /><br />
+                                2 GB DDR <br /><br />
+                                Intel Core i5
+                            </p>
+                        </div>
+                        <div class="price">
+                            <span>1300 USD</span>
+                        </div>
+                    </fieldset>
+                    <br />
+                    <fieldset class="left">
+                        <legend>Apple MacBook Air</legend>
+                        <img src="Images/mac.jpg" />
+                        <div class="info">
+                            <p>
+                                64 GB SSD <br /><br />
+                                2 GB DDR <br /><br />
+                                Intel Core i5
+                            </p>
+                        </div>
+                        <div class="price">
+                            <span>1300 USD</span>
+                        </div>
+                    </fieldset>
+                    <fieldset class="right">
+                        <legend>Apple MacBook Air</legend>
+                        <img src="Images/mac.jpg" />
+                        <div class="info">
+                            <p>
+                                64 GB SSD <br /><br />
+                                2 GB DDR <br /><br />
+                                Intel Core i5
+                            </p>
+                        </div>
+                        <div class="price">
+                            <span>1300 USD</span>
+                        </div>
+                    </fieldset>
+                    <br />
+                    <fieldset class="left">
+                        <legend>Apple MacBook Air</legend>
+                        <img src="Images/mac.jpg" />
+                        <div class="info">
+                            <p>
+                                64 GB SSD <br /><br />
+                                2 GB DDR <br /><br />
+                                Intel Core i5
+                            </p>
+                        </div>
+                        <div class="price">
+                            <span>1300 USD</span>
+                        </div>
+                    </fieldset>
+                    <fieldset class="right">
+                        <legend>Apple MacBook Air</legend>
+                        <img src="Images/mac.jpg" />
+                        <div class="info">
+                            <p>
+                                64 GB SSD <br /><br />
+                                2 GB DDR <br /><br />
+                                Intel Core i5
+                            </p>
+                        </div>
+                        <div class="price">
+                            <span>1300 USD</span>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="sliders">
+                <h2>Min price</h2>
+                <input id="slider1" type="range" min="100" max="500" value="300" step="10" onchange="printValue('slider1','rangeValue1')">
+                <input id="rangeValue1" type="text" size="4"><b>USD</b>
+
+                <h2>Max price</h2>
+                <input id="slider2" type="range" min="500" max="1500" value="1000" step="10" onchange="printValue('slider2','rangeValue2')">
+                <input id="rangeValue2" type="text" size="4"><b>USD</b>
+
+                <h2>Min RAM</h2>
+                <input id="slider3" type="range" min="2" max="8" value="4" step="1" onchange="printValue('slider3','rangeValue3')">
+                <input id="rangeValue3" type="text" size="4"><b>GB</b>
+
+                <h2>MaxRAM:16 GB</h2>
+                <input id="slider4" type="range" min="8" max="16" value="12" step="1" onchange="printValue('slider4','rangeValue4')">
+                <input id="rangeValue4" type="text" size="4"><b>GB</b>
+            </div>
+        </section>
+    </body>
+</html>

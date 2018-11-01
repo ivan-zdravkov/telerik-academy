@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>Digit to String</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<label for="inputOne">Digit: </label>
+		<input type="text" id="inputOne" /><br />
+		
+		<input type="button" value="Digit To String" onclick="ToString()" />
+		
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+			function ToString() {
+				var number = jsConsole.readFloat("#inputOne");
+				if (number > 10)
+				{
+					jsConsole.writeLine("English #, do you speak it ? Enter a single digit!");
+				}
+				else
+				{
+					number %= 10;
+					jsConsole.writeLine(number + " -> " + GetString(number));
+				}
+			}
+			
+			function GetString(number) {
+				switch (number)
+				{
+					case 0: return "zero";
+					case 1: return "one";
+					case 2: return "two";
+					case 3: return "three";
+					case 4: return "four";
+					case 5: return "five";
+					case 6: return "six";
+					case 7: return "seven";
+					case 8: return "eight";
+					case 9: return "nine";
+				}
+			}
+		</script>
+	</body>
+</html>

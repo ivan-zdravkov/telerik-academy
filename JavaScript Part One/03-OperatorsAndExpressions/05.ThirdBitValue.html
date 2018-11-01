@@ -1,0 +1,38 @@
+﻿<html>
+	<head>
+		<title>Third Bit Value</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<span>Check wheather the 3rd bit of a number is 1 or 0<span><br />
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+            function ThirdBit(number) {
+                if ((number & 4) == 4)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+
+            var number1 = 4;
+            var number2 = 8;
+            var number3 = 12;
+            var number4 = 127;
+            var number5 = 128;
+
+            jsConsole.writeLine("What is the third bit: ");
+            jsConsole.writeLine(number1 + " -> " + ThirdBit(number1));
+            jsConsole.writeLine(number2 + " -> " + ThirdBit(number2));
+            jsConsole.writeLine(number3 + " -> " + ThirdBit(number3));
+            jsConsole.writeLine(number4 + " -> " + ThirdBit(number4));
+            jsConsole.writeLine(number5 + " -> " + ThirdBit(number5));
+		</script>
+	</body>
+</html>

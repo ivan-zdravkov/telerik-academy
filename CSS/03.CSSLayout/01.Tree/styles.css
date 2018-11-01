@@ -1,0 +1,30 @@
+﻿body {
+}
+
+ul li {
+    list-style-type: none;
+}
+
+ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.4em;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+ul > li > ul {
+    display: none;
+    padding-left: 12px;
+}
+
+ul > li:hover > ul{
+    display: block;
+}
+
+li > ul > li > a{
+    opacity: 0.6;
+    
+}

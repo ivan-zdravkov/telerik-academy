@@ -1,0 +1,94 @@
+<html>
+	<head>
+		<title>Product of 3 numbers!</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Get the sign of the products of 3 numbers!</span><br />
+		<label for="inputOne">Number: </label>
+		<input type="text" id="inputOne" /><br />
+		
+		<label for="inputTwo">Number: </label>
+		<input type="text" id="inputTwo" /><br />
+		
+		<label for="inputThree">Number: </label>
+		<input type="text" id="inputThree" /><br />
+		
+		<input type="button" value="Get Sign" onclick="GetSignOfThreeNumbers()" />
+		
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+			function GetSignOfThreeNumbers() {
+				var numberOne = jsConsole.readFloat("#inputOne");
+				var numberTwo = jsConsole.readFloat("#inputTwo");
+				var numberThree = jsConsole.readFloat("#inputThree");
+				
+				var sign = GetSign(numberOne, numberTwo, numberThree);
+				jsConsole.writeLine("The sign of the product is: " + sign);
+			}
+			
+			function GetSign(one, two, three) {
+				if (one == 0 || two == 0 || three == 0)
+				{
+					return "Sign n/a";
+				}
+				else
+				{
+					if (one > 0)
+					{
+						if (two > 0)
+						{
+							if (three > 0)
+							{
+								return "Possitive";
+							}
+							else
+							{
+								return "Negative";
+							}
+						}
+						else
+						{
+							if (three > 0)
+							{
+								return "Negative";
+							}
+							else 
+							{
+								return "Possitive";
+							}
+						}
+					}
+					else 
+					{
+						if (two > 0)
+						{
+							if (three > 0)
+							{
+								return "Negative";
+							}
+							else
+							{
+								return "Possitive";
+							}
+						}
+						else
+						{
+							if (three > 0)
+							{
+								return "Possitive";
+							}
+							else 
+							{
+								return "Negative";
+							}
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

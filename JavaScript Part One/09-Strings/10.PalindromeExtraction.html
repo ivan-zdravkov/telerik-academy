@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<title>Palindrome Extraction</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Extract all palindroms from a text</span><br />
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+            String.prototype.replaceAt = function (index, character) {
+                return this.substr(0, index) + character + this.substr(index + character.length);
+            }
+
+            var text = 'Write a program that extracts from a given text all palindromes, e.g. "ABBA", "lamal", "exe"';
+            jsConsole.writeLine(text);
+
+            var words = text.split(" ");
+
+            for (var i = 0, len = words.length; i < len; i++)
+            {
+                for (var j = 0, wordLen = words[i].length; j < wordLen; j++)
+                {
+                    if (words[i][j].toUpperCase() < "A" || words[i][j].toUpperCase() > "Z")
+                    {
+                        words[i] = words[i].replaceAt(j, " "); // Clearing all the non text characters
+                    }
+                }
+                words[i] = words[i].trim();
+
+                var palindrom = true;
+                for (var j = 0, wordLen = words[i].length / 2; j < wordLen; j++)
+                {
+                    if (words[i].length == 1)
+                    {
+                        palindrom = false;
+                        break;
+                    }
+                    if (words[i][j] != words[i][words[i].length - 1 - j])
+                    {
+                        palindrom = false;
+                        break;
+                    }
+                }
+
+                if (palindrom)
+                {
+                    jsConsole.writeLine(words[i]);
+                }
+            }
+        </script>
+	</body>
+</html>

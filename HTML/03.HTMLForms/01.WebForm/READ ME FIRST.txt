@@ -1,0 +1,6 @@
+I am using a javaScript script that automatically changes the phone fields, 
+and the birth day fields to the next ones when I reach the end of the previous.
+The script can be found at: http://www.idocs.com/tags/forms/index_famsupp_162.html
+I have changed it a bit, so it works for my phone and birth date input fields!
+
+Please check it out!

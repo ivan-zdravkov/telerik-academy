@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Lexicographical order</title
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Find the lexicographically smalles and largest property in <strong>document</strong>, <strong>window</strong> and <strong>navigator</strong></span><br />
+	
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+        (function () {
+            PrintInfo(document);
+            PrintInfo(window);
+            PrintInfo(navigator);
+        })();
+
+        function PrintInfo(object) {
+            var firstElement = true;
+            var min;
+            var max;
+
+            for (var property in object) {
+                if (firstElement) {
+                    min = property;
+                    max = property;
+                    firstElement = false;
+                }
+                else {
+                    if (min > property) {
+                        min = property;
+                    }
+
+                    if (max < property) {
+                        max = property;
+                    }
+                }
+            }
+
+            jsConsole.writeLine(object);
+            jsConsole.writeLine("--First: " + min);
+            jsConsole.writeLine("--Last: " + max);
+        }
+    </script>
+	</body>
+</html>

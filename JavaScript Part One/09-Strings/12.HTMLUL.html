@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>HTML UL</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Create an HTML UL, using a template for every HTML LI</span><br />
+
+        <div data-type="template" id="template">
+            <strong>-{name}-</strong><span>-{age}-</span>
+        </div>
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+
+		<script>
+            function generateList(people, template) {
+                template = new String(template);
+                template = template.replace(/<strong>/g, "<li><strong>");
+                template = template.replace(/<\/span>/g, "</span></li>");
+                var list = new String("<ul>")
+                for (var i in people) {
+                    var li = template.replace("-{name}-", people[i].name + " ");
+                    li = li.replace("-{age}-", people[i].age);
+                    list += li;
+                }
+                list += "</ul>";
+                return list;
+            }
+
+            var people = [
+                { name: "Pesho", age: 20 },
+                { name: "Gosho", age: 22 },
+                { name: "Tosho", age: 18 },
+                { name: "Rosho", age: 12 },
+                { name: "Bosho", age: 40 },
+            ]
+            var template = document.getElementById("template").innerHTML;
+            var peopleList = generateList(people, template);
+            jsConsole.writeLine(peopleList);
+		</script>
+	</body>
+</html>

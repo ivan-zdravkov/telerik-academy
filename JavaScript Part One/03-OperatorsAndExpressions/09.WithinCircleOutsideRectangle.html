@@ -1,0 +1,54 @@
+﻿<html>
+	<head>
+		<title>Within Circle Outside Rectangle</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<span>Check if a point is within a circle((1, 1), 3) and outside a rectangle(top = 1, left = -1, width = 6, height = 2)<span><br />
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+            function PointWithinCircle(xCoordinate, yCoordinate, centerX, centerY, radius) {
+                if (((xCoordinate >= centerX - radius) && (xCoordinate <= centerX + radius)) && ((yCoordinate >= centerY - radius) && (yCoordinate <= centerY + radius))) {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            function PointOutsideRectangle(xCoordinate, yCoordinate, rectangleTop, rectangleLeft, width, height)
+            {
+                if (((xCoordinate >= rectangleTop) && (xCoordinate <= rectangleTop + width)) && ((yCoordinate >= rectangleLeft) && (yCoordinate <= rectangleLeft + height)))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
+            function Point(x, y) {
+                jsConsole.write("Point (" + x + ", " + y + ") - ");
+
+                //PointWithinCircle(xCoord, yCoord, CenterCoordX, CenterCoordY, radius)
+                //PointOutsideRectangle(xCoord, yCoord, rectangleTop, rectangleLeft, width, height)
+
+                var condition = (PointWithinCircle(x, y, 1, 1, 3) && PointOutsideRectangle(x, y, 1, -1, 6, 2));
+                condition ? jsConsole.writeLine("The condition is met!") : jsConsole.writeLine("The condition is not met!");
+            }
+
+            Point(2, 2);
+            Point(10, 10);
+            Point(0, 0);
+            Point(6, 6);
+            Point(4, 4);
+            Point(1.2, 1.2);
+
+		</script>
+	</body>
+</html>

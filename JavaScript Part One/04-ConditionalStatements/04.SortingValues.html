@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<title>Biggest of three!</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Sort the 3 numbers in descending order<span><br />
+		<label for="inputOne">Number: </label>
+		<input type="text" id="inputOne" /><br />
+		
+		<label for="inputTwo">Number: </label>
+		<input type="text" id="inputTwo" /><br />
+		
+		<label for="inputThree">Number: </label>
+		<input type="text" id="inputThree" /><br />
+		
+		<input type="button" value="Sort" onclick="Sort()" />
+		
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+			function Sort() {
+				var numberOne = jsConsole.readFloat("#inputOne");
+				var numberTwo= jsConsole.readFloat("#inputTwo");
+				var numberThree = jsConsole.readFloat("#inputThree");
+				
+				ExecuteSort(numberOne, numberTwo, numberThree);
+				jsConsole.writeLine(biggest + " -> " + middle + " -> " + smallest);
+			}
+			
+			function ExecuteSort(one, two, three) {
+				var temp = 0;
+				if (two > one)
+				{
+					if (three > two)
+					{
+						temp = one;
+						one = three;
+						three = temp;
+					}
+					else
+					{
+						temp = one;
+						one = two;
+						two = temp;
+					}
+				}
+				else 
+				{
+					if (three > one)
+					{
+						temp = one;
+						one = three;
+						three = temp;
+					}
+				}
+				
+				if (three > two)
+				{
+					temp = two;
+					two = three;
+					three = temp;
+				}
+				
+				biggest = one;
+				middle = two;
+				smallest = three;
+			}
+			
+		</script>
+	</body>
+</html>

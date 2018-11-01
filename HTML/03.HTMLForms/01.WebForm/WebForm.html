@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebForm</title>
+        <SCRIPT TYPE="text/javascript">
+        <!--
+            var downStrokeField;
+            function autojump(fieldName, nextFieldName, fakeMaxLength)
+            {
+                var myForm = document.forms[document.forms.length - 1];
+                var myField = myForm.elements[fieldName];
+                myField.nextField = myForm.elements[nextFieldName];
+
+                if (myField.maxLength == null)
+                    myField.maxLength = fakeMaxLength;
+
+                myField.onkeydown = autojump_keyDown;
+                myField.onkeyup = autojump_keyUp;
+            }
+
+            function autojump_keyDown()
+            {
+                this.beforeLength = this.value.length;
+                downStrokeField = this;
+            }
+
+            function autojump_keyUp()
+            {
+                if (
+                    (this == downStrokeField) &&
+                    (this.value.length > this.beforeLength) &&
+                    (this.value.length >= this.maxLength)
+                    )
+                    this.nextField.focus();
+                downStrokeField = null;
+            }
+            //-->
+        </SCRIPT>
+    </head>
+    <body>
+        <form  name="WebForm" method="post">
+            <table border="1" cellspacing="0" cellpading="0">
+                <tfoot>
+                    <tr>
+                        <td colspan="4" align="center" BGCOLOR="#D1EDE1">
+                            <input type="submit" value="Submit" />
+                            <input type="reset" value="Clear This Form"
+                        </td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td align="right">
+                            <label for="ln">Last Name</label>
+                        </td>
+                        <td colspan="3">
+                            <input type="text" id="ln" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <label for="fn">First Name</label>
+                        </td>
+                        <td colspan="3">
+                            <input type="text" id="fn" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <label for="add">Address</label>
+                        </td>
+                        <td colspan="3">
+                            <textarea name="add" id="add"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <label for="city">City</label>
+                        </td>
+                        <td>
+                            <input type="text" id="city" />
+                        </td>
+                        <td>
+                            <label for="state">State</label>
+                        </td>
+                        <td>
+                            <input type="text" size="4" id="state" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <label for="zip">Zip/Postal Code</label>
+                        </td>
+                        <td colspan="3">
+                            <input type="text" id="zip" maxlength="4" size="1"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <label for="cntr">Country</label>
+                        </td>
+                        <td colspan="3" >
+                            <select name="Country" id="cntr">
+                                <option value="Value 1" selected="selected"></option>
+                                <option value="Value 2">Bulgaria</option>
+                                <option value="Value 3">USA</option>
+                                <option value="Value 4">UK</option>
+                                <option value="Value 5">France</option>
+                                <option value="Value 6">Germany</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <label for="phone">Phone(country code,<br />area code, number</label>
+                        </td>
+                        <td colspan="3">
+                            <form method="post">
+                                (+
+                                <input type="text" name="ccode" id="phone" maxlength="3" size="1" />
+                                )
+                                <input type="text" name="ocode" maxlength="3" size="1" />
+                                -
+                                <input type="text" name="pcode" maxlength="6" size="6" />
+                            </form>
+                            <SCRIPT TYPE="text/javascript">
+                            <!--
+                                autojump('ccode', 'ocode', 3);
+                                autojump('ocode', 'pcode', 2);
+                            //-->
+                            </SCRIPT>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <label for="mail">E-mail</label>
+                        </td>
+                        <td colspan="3">
+                            <input type="text" id="mail" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <label for="brd">Birth date</label>
+                        </td>
+                        <td colspan="3">
+                            <form method="post">
+                                Day
+                                <input type="text" name="day" id="brd" maxlength="2" size="1" />
+                                Month
+                                <input type="text" name="mnt" maxlength="2" size="1" />
+                                Year
+                                <input type="text" name="yr" maxlength="4" size="1" />
+                            </form>
+                            <SCRIPT TYPE="text/javascript">
+                            <!--
+                                autojump('day', 'mnt', 3);
+                                autojump('mnt', 'yr', 2);
+                            //-->
+                            </SCRIPT>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <label for="gen">Gender</label>
+                        </td>
+                        <td colspan="3">
+                            <select name="gender">
+                                <option value="Value 1" selected="selected"></option>
+                                <option value="Value 2">Male</option>
+                                <option value="Value 3">Female</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td aligne="right">
+                            Starting Date
+                        </td>
+                        <td colspan="3">
+                            <input type="radio" name="start" id="spring" value="Spring 2006" />
+                            <label for="spring">Spring 2006</label>
+                            <input type ="radio" name="start" id="summer" value="Summer 2006" />
+                            <label for="summer">Summer 2006</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <label for="com">Comments/Questions</label>
+                        </td>
+                        <td colspan="3">
+                            <textarea name="Comments" rows="6">You can give any feedback here!</textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>

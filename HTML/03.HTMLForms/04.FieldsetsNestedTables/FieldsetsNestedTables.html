@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>FieldsetsNestedTables</title>
+        <script>
+            function printValue(sliderID, textbox)
+            {
+                var x = document.getElementById(textbox);
+                var y = document.getElementById(sliderID);
+                x.value = y.value;
+            }
+            window.onload = function ()
+            {
+                printValue('slider1', 'rangeValue1');
+                printValue('slider2', 'rangeValue2');
+                printValue('slider3', 'rangeValue3');
+                printValue('slider4', 'rangeValue4');
+            }
+        </script>
+    </head>
+    <body>
+        <table border="1" cellpadding="6" cellspacing="0">
+            <tr>
+                <th colspan="2" align="center">
+                    <h1>
+                        <a href="FieldsetsNestedTables.html">Apple</a>&nbsp
+                        <a href="FieldsetsNestedTables.html">Toshiba</a>&nbsp
+                        <a href="FieldsetsNestedTables.html">Lenovo</a>&nbsp
+                        <a href="FieldsetsNestedTables.html">Dell</a>&nbsp
+                        <a href="FieldsetsNestedTables.html">Asus</a>&nbsp
+                        <a href="FieldsetsNestedTables.html">Acer</a>&nbsp
+                        <a href="FieldsetsNestedTables.html">HP</a>
+                    </h1>
+                </th>
+            </tr>
+            <tr>
+                <td> 
+                    <form>
+                        <table border="0" cellpadding="4" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <fieldset>
+                                        <legend>Apple MacBook Air</legend>
+                                        <table>
+                                            <tr>
+                                                <td align="center">
+                                                    <img src="Images/mac.jpg" /><br />
+                                                    <b>1300 USD</b>
+                                                </td>
+                                                <td>
+                                                    <b>64 GB SSD</b><br /><br />
+                                                    <b>2 GB DDR</b><br /><br />
+                                                    <b>Intel Core i5</b>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </fieldset>
+                                </td>
+                                <td>
+                                    <fieldset>
+                                        <legend>Apple MacBook Air</legend>
+                                        <table>
+                                            <tr>
+                                                <td align="center">
+                                                    <img src="Images/mac.jpg" /><br />
+                                                    <b>1300 USD</b>
+                                                </td>
+                                                <td>
+                                                    <b>64 GB SSD</b><br /><br />
+                                                    <b>2 GB DDR</b><br /><br />
+                                                    <b>Intel Core i5</b>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </fieldset>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <fieldset>
+                                        <legend>Apple MacBook Air</legend>
+                                        <table>
+                                            <tr>
+                                                <td align="center">
+                                                    <img src="Images/mac.jpg" /><br />
+                                                    <b>1300 USD</b>
+                                                </td>
+                                                <td>
+                                                    <b>64 GB SSD</b><br /><br />
+                                                    <b>2 GB DDR</b><br /><br />
+                                                    <b>Intel Core i5</b>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </fieldset>
+                                </td>
+                                <td>
+                                    <fieldset>
+                                        <legend>Apple MacBook Air</legend>
+                                        <table>
+                                            <tr>
+                                                <td align="center">
+                                                    <img src="Images/mac.jpg" /><br />
+                                                    <b>1300 USD</b>
+                                                </td>
+                                                <td>
+                                                    <b>64 GB SSD</b><br /><br />
+                                                    <b>2 GB DDR</b><br /><br />
+                                                    <b>Intel Core i5</b>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </fieldset>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <fieldset>
+                                        <legend>Apple MacBook Air</legend>
+                                        <table>
+                                            <tr>
+                                                <td align="center">
+                                                    <img src="Images/mac.jpg" /><br />
+                                                    <b>1300 USD</b>
+                                                </td>
+                                                <td>
+                                                    <b>64 GB SSD</b><br /><br />
+                                                    <b>2 GB DDR</b><br /><br />
+                                                    <b>Intel Core i5</b>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </fieldset>
+                                </td>
+                                <td>
+                                    <fieldset>
+                                        <legend>Apple MacBook Air</legend>
+                                        <table>
+                                            <tr>
+                                                <td align="center">
+                                                    <img src="Images/mac.jpg" /><br />
+                                                    <b>1300 USD</b>
+                                                </td>
+                                                <td>
+                                                    <b>64 GB SSD</b><br /><br />
+                                                    <b>2 GB DDR</b><br /><br />
+                                                    <b>Intel Core i5</b>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </fieldset>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </td>
+                <td>
+                    <table border="0" cellpadding="6" cellspacing="0">
+                        <tr>
+                            <td>
+                                <h2>Min price</h2>
+                                <input id="slider1" type="range" min="100" max="500" value="300" step="10" onchange="printValue('slider1','rangeValue1')">
+                                <input id="rangeValue1" type="text" size="4"><b>USD</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>Max price</h2>
+                                <input id="slider2" type="range" min="500" max="1500" value="1000" step="10" onchange="printValue('slider2','rangeValue2')">
+                                <input id="rangeValue2" type="text" size="4"><b>USD</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>Min RAM</h2>
+                                <input id="slider3" type="range" min="2" max="8" value="4" step="1" onchange="printValue('slider3','rangeValue3')">
+                                <input id="rangeValue3" type="text" size="4"><b>GB</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h2>MaxRAM:16 GB</h2>
+                                <input id="slider4" type="range" min="8" max="16" value="12" step="1" onchange="printValue('slider4','rangeValue4')">
+                                <input id="rangeValue4" type="text" size="4"><b>GB</b>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>  
+    </body>
+</html>

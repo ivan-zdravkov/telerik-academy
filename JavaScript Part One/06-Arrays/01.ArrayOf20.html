@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>Array of 20</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Make an array of 20 elements</span><br />
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+			document.onload(MakeArray());
+		
+			function MakeArray() {
+				var array = new Array(20);
+				for (var i = 0; i < array["length"]; i++)
+				{
+					array[i] = i * 5;
+					jsConsole.writeLine("array[" + i + "]" + " = " + array[i]);
+				}
+			}
+		</script>
+	</body>
+</html>

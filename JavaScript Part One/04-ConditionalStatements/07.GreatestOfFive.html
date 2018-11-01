@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>Greatest Of Five</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Get the biggest of 5 numbers<span><br />
+		<label for="inputOne">Number: </label>
+		<input type="text" id="inputOne" /><br />
+		
+		<label for="inputTwo">Number: </label>
+		<input type="text" id="inputTwo" /><br />
+		
+		<label for="inputThree">Number: </label>
+		<input type="text" id="inputThree" /><br />
+		
+		<label for="inputFour">Number: </label>
+		<input type="text" id="inputFour" /><br />
+		
+		<label for="inputFive">Number: </label>
+		<input type="text" id="inputFive" /><br />
+		
+		<input type="button" value="Get Biggest" onclick="FindBiggest()" />
+		
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+			function FindBiggest() {
+				var numbers = new Array();
+				numbers[0] = jsConsole.readFloat("#inputOne");
+				numbers[1] = jsConsole.readFloat("#inputTwo");
+				numbers[2] = jsConsole.readFloat("#inputThree");
+				numbers[3] = jsConsole.readFloat("#inputFour");
+				numbers[4] = jsConsole.readFloat("#inputFive");
+				
+				var biggest = numbers[0];
+				for (var i = 1; i < numbers.length; i++)
+				{
+					if (biggest < numbers[i])
+					{
+						biggest = numbers[i];
+					}
+				}
+				
+				jsConsole.writeLine("The biggest number is: " + biggest);
+			}
+		</script>
+	</body>
+</html>

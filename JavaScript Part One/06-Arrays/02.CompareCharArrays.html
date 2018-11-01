@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<title>Compare Char Arrays</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Compare 2 char arrays lexicographically</span><br />
+		
+		<label for="inputOne">Array One: </label>
+		<input type="text" id="inputOne" /><br />
+		
+		<label for="inputTwo">Array Two: </label>
+		<input type="text" id="inputTwo" /><br />
+		
+		<button onclick="Compare()">Compare</button>
+		
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+            function Compare() {
+                var stringOne = jsConsole.read("#inputOne");
+                var arrayOne = CreateCharArray(stringOne);                
+                
+				var stringTwo = jsConsole.read("#inputTwo");
+				var arrayTwo = CreateCharArray(stringTwo);
+
+				CompareArrays(arrayOne, arrayTwo);
+            }
+
+            function CreateCharArray(string) {
+                var array = new Array(string.length);
+                for (var i = 0; i < string.length; i++) {
+                    array[i] = string[i];
+                }
+                return array;
+            }
+
+            function CompareArrays(arrayOne, arrayTwo) {
+                var equal = 0 // 0 = equal, 1 = OneBigger, -1 = TwoBigger
+                for (var i = 0; i < ((arrayOne.length > arrayTwo.length) ? arrayTwo.length : arrayOne.length); i++)
+                {
+                    jsConsole.write(arrayOne[i]);
+                    if (arrayOne[i] == arrayTwo[i])
+                    {
+                        jsConsole.write(" = ");
+                    }
+                    else if (arrayOne[i] > arrayTwo[i])
+                    {
+                        jsConsole.write(" > ");
+                        if (equal == 0)
+                        {
+                            equal = 1;
+                        }
+                    }
+                    else 
+                    {
+                        jsConsole.write(" < ");
+                        if (equal == 0)
+                        {
+                            equal = -1;
+                        }
+                    }
+                    jsConsole.writeLine(arrayTwo[i]);
+                }
+
+                jsConsole.writeLine("First Array: " + arrayOne.join(", "));
+                jsConsole.writeLine("Second Array: " + arrayTwo.join(", "));
+
+                if (equal == 0)
+                {
+                    jsConsole.writeLine("The two char arrays are lexicographically equal!");
+                }
+                else if (equal > 1)
+                {
+                    jsConsole.writeLine("The first char array is lexicographically bigger than the second!")
+                }
+                else 
+                {
+                    jsConsole.writeLine("The first char array is lexicographically smaller than the first!")
+                }
+
+            }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grid</title>
+    </head>
+    <body>
+        <table border="1" cellspacing="0" cellpadding="6">
+            <thead BGCOLOR="CCE8FF">
+                <tr>
+                    <th colspan="6" align="left">
+                        <label>Drag a column header and drop it here to group by that column</label>
+                    </th>
+                </tr>
+                <tr>
+                    <th align="left">ProductID</th>
+                    <th align="left">Product name</th>
+                    <th align="left">Unit price</th>
+                    <th align="left">Quality per unit</th>
+                    <th align="left">Units in stock</th>
+                    <th align="left">Discontinued</th>
+                </tr>
+                <tr>
+                    <th align="left">
+                        <input type="text" maxlength="6" size="4" />
+                    </th>
+                    <th align="left">
+                        <input type="text" />
+                    </th>
+                    <th align="left">
+                        <input type="text" maxlength="8" size="8" />
+                        <input type="image" src="Images/icon.jpg" />
+                    </th>
+                    <th align="left">
+                        <input type="text" />
+                    </th>
+                    <th align="left">
+                        <input type="text" />
+                        <input type="image" src="Images/icon.jpg" />
+                    </th>
+                    <th align="left">
+                        <input type="checkbox" name="Discontinued" value="Discontinued">
+                        <input type="image" src="Images/icon.jpg" />
+                    </th>
+                </tr>
+            </thead>
+            <tfoot BGCOLOR="CCE8FF">
+                <tr>
+                    <td colspan="2">
+                        <input type="image" src="Images/bback.jpg" />
+                        <input type="image" src="Images/back.jpg" />
+                        <a href="Grid.html"> 1 </a>&nbsp
+                        <a href="Grid.html"> 2 </a>&nbsp
+                        <a href="Grid.html"> 3 </a>&nbsp
+                        <a href="Grid.html"> 4 </a>&nbsp
+                        <a href="Grid.html"> 5 </a>&nbsp
+                        <a href="Grid.html"> 6 </a>&nbsp
+                        <a href="Grid.html"> 7 </a>&nbsp
+                        <a href="Grid.html"> 8 </a>&nbsp
+                        <a href="Grid.html"> 9 </a>&nbsp
+                        <a href="Grid.html"> 10 </a>&nbsp
+                        <label> ... </label>
+                        <input type="image" src="Images/forward.jpg" />
+                        <input type="image" src="Images/fforward.jpg" />
+                    </td>
+                    <td>
+                        Page size
+                        <select name ="PAgeSize">
+                            <option value="Value 1" selected="selected">10</option>
+                            <option value="Value 2">25</option>
+                            <option value="Value 3">50</option>
+                            <option value="Value 4">100</option>
+                        </select>
+                    </td>
+                    <td colspan="3" align="right">
+                        <label>335104 items in 33511 pages</label>  
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Chai</td>
+                    <td>$18.00</td>
+                    <td>10 boxes x 20 bags</td>
+                    <td>39</td>
+                    <td><input type="checkbox" name="Discontinued" value="Discontinued" unchecked onclick="return false;"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Chang</td>
+                    <td>$19.00</td>
+                    <td>24 - 12 oz bottles</td>
+                    <td>17</td>
+                    <td><input type="checkbox" name="Discontinued" value="Discontinued" unchecked onclick="return false;"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Aniseed Syrip</td>
+                    <td>$10.00</td>
+                    <td>12 - 550 ml bottles</td>
+                    <td>13</td>
+                    <td><input type="checkbox" name="Discontinued" value="Discontinued" unchecked onclick="return false;"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Chef Anton's Cajun Seasoning</td>
+                    <td>$22.00</td>
+                    <td>46 - 6 oz jars</td>
+                    <td>53</td>
+                    <td><input type="checkbox" name="Discontinued" value="Discontinued" unchecked onclick="return false;"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Chef Anton's Gumbo Mix</td>
+                    <td>$21.35</td>
+                    <td>36 boxes</td>
+                    <td>0</td>
+                    <td><input type="checkbox" name="Discontinued" value="Discontinued" checked onclick="return false;"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Grandma's Boysenberry Spread</td>
+                    <td>$25.00</td>
+                    <td>12 - 8 oz jars</td>
+                    <td>120</td>
+                    <td><input type="checkbox" name="Discontinued" value="Discontinued" unchecked onclick="return false;"></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Uncle Bob's Organic Dried Pears</td>
+                    <td>$30.00</td>
+                    <td>12 - 1 lb pkgs.</td>
+                    <td>15</td>
+                    <td><input type="checkbox" name="Discontinued" value="Discontinued" unchecked onclick="return false;"></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Northwoods Cranberry Sauce</td>
+                    <td>$40.00</td>
+                    <td>12 - 12 oz jars</td>
+                    <td>6</td>
+                    <td><input type="checkbox" name="Discontinued" value="Discontinued" unchecked onclick="return false;"></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Mishi Kobe Niku</td>
+                    <td>$97.00</td>
+                    <td>18 - 500 g pkgs.</td>
+                    <td>29</td>
+                    <td><input type="checkbox" name="Discontinued" value="Discontinued" checked onclick="return false;"></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Ikura</td>
+                    <td>$31.00</td>
+                    <td>12 - 200 ml jars</td>
+                    <td>31</td>
+                    <td><input type="checkbox" name="Discontinued" value="Discontinued" unchecked onclick="return false;"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

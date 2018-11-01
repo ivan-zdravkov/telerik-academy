@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<title>Creating Div Elements</title>
+	</head>
+	
+	<body>
+		<script>
+            window.onload = rotate();
+
+            function rotate() {
+                var angle = 0;
+                var radius = 200;
+                var center = {
+                    x: 280,
+                    y: 280
+                }
+
+                var backgroundColor = getRandomColor();
+                var fontColor = getRandomColor();
+                var borderColor = getRandomColor();
+
+                window.setInterval (function () 
+                {
+                    var numberOfDivs = 5;
+                    var space = ((Math.PI * 2) / numberOfDivs);
+                    
+                    document.body.innerHTML = "";
+                    document.head.innerHTML = "<title>Creating Div Elements</title>";
+
+                    for (var i = 0; i < numberOfDivs; i++) {
+                        var div = document.createElement("div");
+                        div.id = "div" + i;
+
+                        var width = 100;
+                        var height = 100;
+
+                        var currentAngle = angle + (space * i);
+                        if (currentAngle > Math.PI * 2)
+                            currentAngle -= Math.PI * 2;
+
+                        var possitionX = center.x + radius * Math.cos(currentAngle);
+                        var possitionY = center.y + radius * Math.sin(currentAngle);
+
+                        var borderRadius = 100;
+                        var borderWidth = 2;
+
+                        var css = "#" + div.id +
+                            "{" +
+                                "width: " + width + "px;" +
+                                "height: " + height + "px;" +
+                                "border: 1px solid black;" +
+                                "background-color: " + backgroundColor + ";" +
+                                "color: " + fontColor + ";" +
+                                "position:absolute;" +
+                                "left: " + possitionX + "px;" +
+                                "top: " + possitionY + "px;" +
+                                "border-radius: " + borderRadius + "px;" +
+                                "border-color: " + borderColor + ";" +
+                                "border-width: " + borderWidth + ";" +
+                                "text-align: center;" +
+                                "vertical-align: middle;" +
+                            "}";
+
+                        var style = document.createElement('style');
+
+                        style.appendChild(document.createTextNode(css));
+                        document.head.appendChild(style);
+
+                        document.body.appendChild(div);
+                    }
+
+                    angle += ((Math.PI * 2) / 360);
+                    if (angle >= Math.PI * 2)
+                    {
+                        angle = 0;
+                    }
+                }, 100);
+            }
+
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF'.split('');
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.round(Math.random() * 15)];
+                }
+                return color;
+            }
+		</script>
+	</body>
+</html>

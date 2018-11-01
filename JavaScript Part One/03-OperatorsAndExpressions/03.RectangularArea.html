@@ -1,0 +1,22 @@
+﻿<html>
+	<head>
+		<title>Rectangular Area</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<span>Calculate a rectangle's area<span><br />
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+            function CalculateArea(width, height) {
+                jsConsole.writeLine("The area of the rectangle (width: " + width + ", height: " + height + ") is " + width * height);
+            }
+
+            CalculateArea(10, 5);
+            CalculateArea(1.2, 18);
+            CalculateArea(true, true + 10);
+		</script>
+	</body>
+</html>

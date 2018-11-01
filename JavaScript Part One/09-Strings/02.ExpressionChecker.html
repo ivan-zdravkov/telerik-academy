@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>Expression Checker</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Check if an expression has the brackets put correctly</span><br />
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+            function expressionCheck(expression) {
+                var stack = new Array();
+
+                for (var i = 0, len = expression.length; i < len; i++)
+                {
+                    if (expression[i] == '(')
+                    {
+                        stack.push(expression[i]);
+                    }
+                    else if (expression[i] == ')')
+                    {
+                        if (stack.length == 0)
+                        {
+                            return "The expression is not correct. You are missing an oppening bracket somewhere!"
+                        }
+                        else if (stack[stack.length - 1] != '(')
+                        {
+                            return "The expression is not correct. You are missing a closing bracket somewhere!"
+                        }
+                        else 
+                        {
+                            stack.pop();
+                        }
+                    }
+                    else {
+                        continue;
+                    }
+                }
+
+                if (stack.length == 0){
+                    return "The expression is correct!"
+                }
+                else
+                {
+                    return "The expression is not correct! You are missing a closing bracket somewhere!"
+                }
+            }
+
+            var expression;
+
+            expression = "((a + b) / 5 - d)";
+            jsConsole.writeLine(expression);
+            jsConsole.writeLine(expressionCheck(expression));
+            jsConsole.writeLine("");
+
+            expression = ")(a + b))";
+            jsConsole.writeLine(expression);
+            jsConsole.writeLine(expressionCheck(expression));
+            jsConsole.writeLine("");
+
+            expression = "(a + b))";
+            jsConsole.writeLine(expression);
+            jsConsole.writeLine(expressionCheck(expression));
+            jsConsole.writeLine("");
+
+            expression = "(a + b";
+            jsConsole.writeLine(expression);
+            jsConsole.writeLine(expressionCheck(expression));
+            jsConsole.writeLine("");
+		</script>
+	</body>
+</html>

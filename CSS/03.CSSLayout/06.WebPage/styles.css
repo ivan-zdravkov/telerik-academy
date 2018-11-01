@@ -1,0 +1,73 @@
+﻿body {
+    font-family: Arial, 'Times New Roman';
+}
+
+section {
+    background-color: #1e3741;
+    border: 2px solid #337d8f;
+    border-radius: 10px;
+    height: 440px;
+    width: 800px;
+}
+
+section > nav > span {
+    background-color: #4b5f67;
+    display: inline-block;
+    padding: 8px 16px 8px;
+    color: #93acb6;
+}
+
+section > nav > span:hover {
+    cursor: pointer;
+}
+
+section > nav {
+    padding: 0;
+    margin: 10px 1px 10px 0px;
+}
+
+section > nav > span.selected {
+    background-color: #1e3741;
+    color: white;
+}
+
+section > article {
+    width: 280px;
+}
+
+section > article > div {
+    float: left;
+}
+
+img {
+    position: absolute;
+    zoom: 1.25;
+}
+
+img:hover {
+    cursor: pointer;
+}
+
+section > article > div > header > span {
+    display: block;
+    background-color: #00968c;
+    color: white;
+    padding: 8px;
+}
+
+section > article > div > div {
+    color: #9daba2;
+    border-bottom: 2px solid #304650;
+}
+
+section > article > div > div:hover {
+    cursor: pointer;
+}
+
+section > article > div > div:last-child {
+    border: none;
+}
+
+section > article > div > div > p {
+    padding-left: 8px;
+}

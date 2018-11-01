@@ -1,0 +1,29 @@
+﻿<html>
+	<head>
+		<title>Point Within Circle</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<span>Check if a point is within circle<span><br />
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+            function PointWithinCircle(xCoordinate, yCoordinate, centerX, centerY, radius) {
+                if (((xCoordinate >= centerX - radius) && (xCoordinate <= centerX + radius)) && ((yCoordinate >= centerY - radius) && (yCoordinate <= centerY + radius)))
+                {
+                    jsConsole.writeLine("The point (" + xCoordinate + ", " + yCoordinate + ") is within the circle!");
+                }
+                else
+                {
+                    jsConsole.writeLine("The point (" + xCoordinate + ", " + yCoordinate + ") is outside the circle!");
+                }
+            }
+
+            //PointWithinCircle(xCoord, yCoord, CenterCoordX, CenterCoordY, radius)
+            PointWithinCircle(2, 2, 0, 0, 5);
+            PointWithinCircle(10, 10, 0, 0, 5);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>Find Rarity</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Find how many times a given number is found in the array ([0 - 9])</span><br />
+
+        <label for="inputOne">Number:</label>
+        <input type="text" id="inputOne" /><br />
+
+        <button onclick="buildArray()">Find Rarity</button>
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>	
+            function buildArray() {
+                var number = jsConsole.readFloat("#inputOne");
+
+			    var numberOfArrays = 5;
+			    var numberOfElementsInArray = 20;
+			    var numbersRange = 10;
+
+			    if (number >= numbersRange || number < 0)
+			    {
+			        jsConsole.writeLine("The number you entered is not in the array scope!");
+			        return;
+			    }
+
+			    var array = new Array(numberOfArrays);
+			    var testArray = new Array(numbersRange);
+
+			    for (var i = 0; i < array.length; i++) {
+
+			        for (var j = 0; j < testArray.length; j++) {
+			            testArray[j] = 0;
+			        }
+
+			        array[i] = new Array(numberOfElementsInArray);
+
+			        for (var j = 0; j < array[i].length; j++)
+			        {
+			            var randomNumber = (Math.floor(Math.random() * numbersRange)); // random number [0 - 9]
+			            array[i][j] = randomNumber;
+			            testArray[randomNumber]++;
+			        }
+
+			        var rarity = findRarity(array[i], number);
+
+			        jsConsole.writeLine(array[i].join(", "));
+			        jsConsole.writeLine("The number " + number + " is found " + rarity + " times");
+			        jsConsole.writeLine("Comparing result with the testArray... " + (test(testArray, number) == rarity ? "EQUAL" : "NOT EQUAL"));
+			        jsConsole.writeLine("");
+			    } 
+            }
+
+            function findRarity(array, number)
+            {
+                var result = 0;
+                for (var i = 0; i < array.length; i++)
+                {
+                    if (array[i] == number)
+                    {
+                        result++;
+                    }
+                }
+                return result;
+            }
+
+            function test(testArray, number)
+            {
+                return testArray[number];
+            }
+
+
+		</script>
+	</body>
+</html>

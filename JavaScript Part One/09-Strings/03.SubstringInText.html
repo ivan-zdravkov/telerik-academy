@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<title>Substring in text</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Write a JS function that finds how many times a substring is contained in a given text</span><br />
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+            String.prototype.countOf = function (substring) {
+                var text = this.toLowerCase();
+                substring = substring.toLowerCase();
+
+                var words = text.split(" ");
+                var numberOfTimes = 0;
+                for (index in words)
+                {
+                    numberOfTimes += numberOfTimesInWord(words[index], substring);
+                }
+                return numberOfTimes;
+            }
+
+            function numberOfTimesInWord (word, substring)
+            {
+                var numberOfTimes = 0;
+                if (word.indexOf(substring) != -1)
+                {
+                    var index = 0;
+                    do
+                    {
+                        index = word.indexOf(substring, index) + 1;
+                        if (index != 0)
+                        {
+                            numberOfTimes++;
+                        }
+                    } while (index != 0)
+                    return numberOfTimes;
+                }
+                else 
+                {
+                    return 0;
+                }
+            }
+
+            var text = "We are living in an yellow submarine. We don't have anything else. Inside the submarine is very tight. So we are drinking all the day. We will move out of it in 5 days.";
+            var substring = "in";
+
+            jsConsole.writeLine("\"" + substring + "\"" + " is found in")
+            jsConsole.writeLine("\"" + text + "\"");
+            jsConsole.writeLine(text.countOf(substring) + " times");
+            jsConsole.writeLine("");
+
+            substring = "do";
+            jsConsole.writeLine("\"" + substring + "\"" + " is found in")
+            jsConsole.writeLine("\"" + text + "\"");
+            jsConsole.writeLine(text.countOf(substring) + " times");
+            jsConsole.writeLine("");
+            
+            substring = "we";
+            jsConsole.writeLine("\"" + substring + "\"" + " is found in")
+            jsConsole.writeLine("\"" + text + "\"");
+            jsConsole.writeLine(text.countOf(substring) + " times");
+            jsConsole.writeLine("");
+		</script>
+	</body>
+</html>

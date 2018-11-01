@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<title>Shapes</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Point(x, y); LineSegment(Point1(x1, y1), Point2(x2, y2)); Calculate the distance between two points; Check if three segment lines can form a triangle;</span><br />
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+            function buildPoint(x, y) {
+                return {
+                    x: x,
+                    y: y,
+                    Print: function () {
+                        return "(" + x + ", " + y + ")";
+                    }
+                }
+            }
+
+            function calcDistance(pointOne, pointTwo) {
+                var distanceX = Math.abs(pointOne.x - pointTwo.x);
+                var distanceY = Math.abs(pointOne.y - pointTwo.y);
+                return Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+            }
+
+            function buildLineSegment(pointOne, pointTwo) {
+                return {
+                    Start: pointOne,
+                    End: pointTwo,
+                    Length: calcDistance(pointOne, pointTwo),
+                    ToString: function() {
+                        return "((" + pointOne.x + ", " + pointOne.y + "), (" + pointTwo.x + ", " + pointTwo.y + "))";
+                    }
+                }
+            }
+
+            function checkTriangle(lineOne, lineTwo, lineThree) {
+                var trianglePossible = checkTriangleForm(lineOne, lineTwo, lineThree);
+                jsConsole.writeLine("Line: " + lineOne.ToString() + " -> Length = " + lineOne.Length);
+                jsConsole.writeLine("Line: " + lineTwo.ToString() + " -> Length = " + lineTwo.Length);
+                jsConsole.writeLine("Line: " + lineThree.ToString() + " -> Length = " + lineThree.Length);
+                jsConsole.writeLine("These 3 line segments " + (trianglePossible ? "CAN" : "CANNOT") + " form a triangle");
+                jsConsole.writeLine("");
+            }
+
+            function checkTriangleForm(lineOne, lineTwo, lineThree) {
+                var conditionOne = (lineOne.Length < lineTwo.Length + lineThree.Length);
+                var conditionTwo = (lineTwo.Length < lineOne.Length + lineThree.Length);
+                var conditionThree = (lineThree.Length < lineOne.Length + lineTwo.Length);
+
+                if (conditionOne && conditionTwo && conditionThree) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+
+            var pointOne = buildPoint(0, 0);
+            var pointTwo = buildPoint(3, 3);
+            var pointThree = buildPoint(1, 3);
+            var pointFour = buildPoint(6, 8);
+
+            jsConsole.writeLine(pointOne.Print());
+            jsConsole.writeLine(pointTwo.Print());
+            jsConsole.writeLine(pointThree.Print());
+            jsConsole.writeLine(pointFour.Print());
+            jsConsole.writeLine("");
+
+            var distance = calcDistance(pointOne, pointTwo);
+            jsConsole.writeLine("The distance between P(" + pointOne.x + ", " + pointOne.y + ") and P(" + pointTwo.x + ", " + pointTwo.y + ") is " + distance);
+            jsConsole.writeLine("");
+
+            var lineOne = buildLineSegment(pointOne, pointTwo);
+            var lineTwo = buildLineSegment(pointThree, pointFour);
+            var lineThree = buildLineSegment(pointTwo, pointFour);
+            checkTriangle(lineOne, lineTwo, lineThree);
+
+            checkTriangle(buildLineSegment(buildPoint(0, 0), buildPoint(10, 10)), buildLineSegment(buildPoint(2, 2), buildPoint(4, 4)), buildLineSegment(buildPoint(1, 1), buildPoint(-1, -1)));
+            
+		</script>
+	</body>
+</html>

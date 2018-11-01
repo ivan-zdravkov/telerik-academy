@@ -1,0 +1,27 @@
+﻿<html>
+	<head>
+		<title>Five and Seven Divide</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<span>Find out if a number is divided by 5 and 7 at the same time<span><br />
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+            function Check5And7(number) {
+                ((number % 5 == 0) && (number % 7 == 0)) ?
+                    jsConsole.write("The number " + number + " can") :
+                    jsConsole.write("The number " + number + " cannot");
+                jsConsole.writeLine(" be devided by 5 and 7!");
+
+            }
+
+            Check5And7(14);
+            Check5And7(35);
+            Check5And7(135);
+            Check5And7(70);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>Biggest of three!</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Print the biggest of 3 numbers<span><br />
+		<label for="inputOne">Number: </label>
+		<input type="text" id="inputOne" /><br />
+		
+		<label for="inputTwo">Number: </label>
+		<input type="text" id="inputTwo" /><br />
+		
+		<label for="inputThree">Number: </label>
+		<input type="text" id="inputThree" /><br />
+		
+		<input type="button" value="Find Biggest" onclick="FindBiggest()" />
+		
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+			function FindBiggest() {
+				var numberOne = jsConsole.readFloat("#inputOne");
+				var numberTwo= jsConsole.readFloat("#inputTwo");
+				var numberThree = jsConsole.readFloat("#inputThree");
+				
+				var biggest = Find(numberOne, numberTwo, numberThree);
+				jsConsole.writeLine("The biggest of the 3 is: " + biggest);
+			}
+			
+			function Find(one, two, three) {
+				var biggest = one;
+				if (two > one)
+				{
+					if (three > two)
+					{
+						biggest = three;
+					}
+					else
+					{
+						biggest = two;
+					}
+				}
+				else 
+				{
+					if (three > one)
+					{
+						biggest = three;
+					}
+				}
+				return biggest;
+			}
+			
+		</script>
+	</body>
+</html>

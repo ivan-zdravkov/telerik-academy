@@ -1,0 +1,46 @@
+﻿<html>
+	<head>
+		<title>Third Digit Seven</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<span>Check if the third digit of a number is 7<span><br />
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+            function IsThirdDigitSeven(number) {
+                if (number >= -699 && number <= 699)
+                {
+                    return false;
+                }
+                else 
+                {
+                    number /= 100;
+                    number = parseInt(number);
+
+                    if ((number % 10) == 7)
+                    {
+                        return true;
+                    }
+                    else 
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            var number1 = 79;
+            var number2 = 769;
+            var number3 = 5650;
+            var number4 = 56789;
+
+            jsConsole.writeLine("Is the third digit 7: ");
+            jsConsole.writeLine(number1 + " -> " + IsThirdDigitSeven(number1));
+            jsConsole.writeLine(number2 + " -> " + IsThirdDigitSeven(number2));
+            jsConsole.writeLine(number3 + " -> " + IsThirdDigitSeven(number3));
+            jsConsole.writeLine(number4 + " -> " + IsThirdDigitSeven(number4));
+		</script>
+	</body>
+</html>

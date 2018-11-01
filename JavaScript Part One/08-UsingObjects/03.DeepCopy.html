@@ -1,0 +1,115 @@
+<html>
+	<head>
+		<title>Deep Copy</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Write a function that makes a deep copy of an object</span><br />
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+            Number.prototype.clone = function () {
+                return this;
+            };
+
+            Boolean.prototype.clone = function () {
+                return this;
+            };
+
+            String.prototype.clone = function () {
+                return this;
+            };
+
+            Date.prototype.clone = function () {
+                var copy = new Date();
+                copy.setTime(this.getTime());
+                return copy;
+            };
+
+            Array.prototype.clone = function () {
+                var copy = [];
+                for (var i = 0, len = this.length; i < len; i++) {
+                    copy[i] = this[i].clone();
+                }
+                return copy;
+            };
+
+            Object.prototype.clone = function () {
+                var copy = {};
+                for (var attr in this) {
+                    if (this.hasOwnProperty(attr))
+                    {
+                        copy[attr] = this[attr].clone();
+                    }
+                }
+                return copy;
+            };
+
+            function createPerson (firstName, lastName, age, ID) {
+                return {
+                    firstName: firstName,
+                    lastName: lastName,
+                    age: age,
+                    ID: ID
+                }
+            }
+
+            function print(people) {
+                var result = "";
+                for (var i = 0, len = people.length; i < len; i++)
+                {
+                    result += "{" + people[i].firstName + " " + people[i].lastName + "; " + people[i].age + " -> " + people[i].ID + "}";
+                    if (i != len - 1)
+                    {
+                        result += ", ";
+                    }
+                }
+                return result;
+            }
+
+            var number = 4;
+            jsConsole.writeLine("Cloning a number. (" + number + ")");
+            var numberClone = number.clone();      
+            number = 10;
+            jsConsole.writeLine("Changing the original number -> " + number);
+            jsConsole.writeLine("number: " + number);
+            jsConsole.writeLine("clone: " + numberClone);
+            jsConsole.writeLine("");
+
+            var bool = true;
+            jsConsole.writeLine("Cloning a boolean. (" + bool + ")");
+            var boolClone = bool.clone();
+            bool = false;
+            jsConsole.writeLine("Changing the original bolean -> " + bool);
+            jsConsole.writeLine("boolean: " + bool);
+            jsConsole.writeLine("clone: " + boolClone);
+            jsConsole.writeLine("");
+
+            var str = "This is the original value of the string";
+            jsConsole.writeLine("Cloning a string. (" + str + ")");
+            var strClone = str.clone();
+            str = "This is the changed value of the string";
+            jsConsole.writeLine("Changing the original string -> " + str);
+            jsConsole.writeLine("string: " + str);
+            jsConsole.writeLine("clone: " + strClone);
+            jsConsole.writeLine("");
+
+            var people = [
+                createPerson("Ivan", "Ivanov", 23, 9011051235),
+                createPerson("Stoyan", "Stoyanov", 20, 125164362),
+                createPerson("Vladi", "Penev", 43, 1313644256),
+                createPerson("Zlati", "Zlatev", 6, 0135642356)
+            ];
+            jsConsole.writeLine("Clonning an Array of type Person.");
+            var peopleClone = people.clone();
+            people = [1, 2, 3, 4];
+            jsConsole.writeLine("Changing the original Array to [" + people.join(", ") + "]");
+            jsConsole.writeLine("Array: [" + people.join(", ") + "]");
+            jsConsole.writeLine("clone: [" + print(peopleClone) + "]");
+            
+		</script>
+	</body>
+</html>

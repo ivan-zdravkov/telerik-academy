@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>White Space Replace</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Write a function that replaces non breaking white-spaces in a text with &nbsp</span><br />
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+            function whiteSpaceReplace(text) {
+                var letters = new Array(text.length);
+
+                for (var i = 0, len = letters.length; i < len; i++)
+                {
+                    letters[i] = text[i];
+                    if (letters[i] == " ")
+                    {
+                        if (i == 0)
+                        {
+                            continue;
+                        }
+                        else 
+                        {
+                            if ((letters[i - 1] == " ") || (letters[i - 1] == "(&_nbsp)"))
+                            {
+                                letters[i] = "(&_nbsp)";
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                
+                return letters.join("");
+            }
+
+            jsConsole.writeLine("I am escaping the symbol for white space, since if I don't it just prints on the console as a white space :D");
+            jsConsole.writeLine("");
+
+
+            var text = "This is a text    with some white  spaces.  ";
+            jsConsole.writeLine(whiteSpaceReplace(text));
+		</script>
+	</body>
+</html>

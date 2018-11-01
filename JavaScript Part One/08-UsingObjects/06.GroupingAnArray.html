@@ -1,0 +1,110 @@
+<html>
+	<head>
+		<title>GroupingAnArray</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Write a function that groups an array of persons by age, fname or lname</span><br />
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+            function createPerson(firstName, lastName, age, ID) {
+                return {
+                    firstName: firstName,
+                    lastName: lastName,
+                    age: age,
+                    toString: function () {
+                        return firstName + " " + lastName + ", " + age;
+                    }
+                }
+            }
+
+            function group(people, property) {
+                if (property == "age")
+                {
+                    var ageArray = {};
+                    for (var i in people) {
+                        var person = people[i];
+                        if (!ageArray[person.age])
+                        {
+                            ageArray[person.age] = new Array();
+                            ageArray[person.age].push(person);
+                        }
+                        else {
+                            ageArray[person.age].push(person);
+                        }
+                    }
+                    return ageArray;
+                }
+                else if (property == "firstName")
+                {
+                    var nameArray = {};
+                    for (var i in people) {
+                        var person = people[i];
+                        if (!nameArray[person.firstName])
+                        {
+                            nameArray[person.firstName] = new Array();
+                            nameArray[person.firstName].push(person);
+                        }
+                        else
+                        {
+                            nameArray[person.firstName].push(person);
+                        }
+                    }
+                    return nameArray;
+                }
+                else if (property == "lastName") {
+                    var lNameArray = {};
+                    for (var i in people) {
+                        var person = people[i];
+                        if (!lNameArray[person.lastName]) {
+                            lNameArray[person.lastName] = new Array();
+                            lNameArray[person.lastName].push(person);
+                        }
+                        else {
+                            lNameArray[person.lastName].push(person);
+                        }
+                    }
+                    return lNameArray;
+                }
+                else {
+                    return new Array();
+                }
+            }
+
+            var people = [
+                createPerson("Ivan", "Ivanov", 23),
+                createPerson("Stoyan", "Stoyanov", 20),
+                createPerson("Peter", "Stoyanov", 23),
+                createPerson("Peter", "Penev", 20),
+                createPerson("Ivan", "Merkuriev", 33),
+                createPerson("Vladi", "Penev", 43),
+                createPerson("Stoyan", "Merkuriev", 43),
+                createPerson("Ivan", "Zlatev", 22),
+                createPerson("Zlati", "Zlatev", 6)
+            ];
+
+            
+            var groupedByAge = group(people, "age");
+            for (var item in groupedByAge) // For every member of the array
+            {
+                jsConsole.writeLine(groupedByAge[item].join(" | ")); // Print the content
+            }
+            jsConsole.writeLine("");
+
+            var groupedByFName = group(people, "firstName");
+            for (var item in groupedByFName) {
+                jsConsole.writeLine(groupedByFName[item].join(" | "));
+            }
+            jsConsole.writeLine("");
+
+            var groupedByLName = group(people, "lastName");
+            for (var item in groupedByLName) {
+                jsConsole.writeLine(groupedByLName[item].join(" | "));
+            }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Check For Property</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Write a function that checks if a given object contains a given property</span><br />
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+        <script>
+            function createPerson(firstName, lastName, age, ID) {
+                return {
+                    firstName: firstName,
+                    lastName: lastName,
+                    age: age,
+                    ID: ID
+                }
+            }
+
+            function hasProperty(object, property) {
+                var copy;
+                for (var attr in object) {
+                    if (object.hasOwnProperty(property)) {
+                        return true
+                    }
+                }
+                return false;
+            }
+
+            var people = [
+                createPerson("Ivan", "Ivanov", 23, 9011051235),
+                createPerson("Stoyan", "Stoyanov", 20, 125164362),
+                createPerson("Vladi", "Penev", 43, 1313644256),
+                createPerson("Zlati", "Zlatev", 6, 0135642356)
+            ];
+
+            jsConsole.writeLine("Does the object have a property length: ");
+            jsConsole.writeLine("Object Person -> " + hasProperty(people[0], "length"));
+            jsConsole.writeLine("Array[Person] -> " + hasProperty(people, "length"));
+            jsConsole.writeLine("Number -> " + hasProperty(new Number(10), "length"));
+            jsConsole.writeLine("String -> " + hasProperty("Some string", "length"));
+
+        </script>
+	</body>
+</html>

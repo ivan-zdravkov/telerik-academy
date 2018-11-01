@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>Finding Maximum Increasing Sequence</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Find the maximum increasing sequence in an array</span><br />
+		
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+        <script>
+            document.onload(FindMaxSequence());
+
+            function FindMaxSequence() {
+                var numberOfArrays = 5;
+                var numberOfElementsInArray = 20;
+
+                var array = new Array(numberOfArrays);
+                for (var i = 0; i < array.length; i++) {
+                    array[i] = new Array(numberOfElementsInArray);
+                    for (var j = 0; j < array[i].length; j++) {
+                        array[i][j] = Math.floor((Math.floor(Math.random() * 10)) / 2 + 1); // random number [1 - 5]
+                    }
+                    Find(array[i]);
+                }
+            }
+
+            function Find(array) {
+                var maxLength = 1;
+                var currentLength = 1;
+
+                var maxPossition = 0;
+                var currentPossition = 0;
+
+                var number = array[0];
+
+                for (var i = 1; i < array.length; i++) {
+                    if (array[i] == array[i - 1] + 1) {
+                        currentLength++;
+                        if (currentLength > maxLength) {
+                            maxLength = currentLength;
+                            maxPossition = currentPossition;
+                            number = array[i];
+                        }
+                    }
+                    else {
+                        currentPossition = i;
+                        currentLength = 1;
+                    }
+                }
+
+                jsConsole.writeLine(array.join(", "));
+                var result = array.splice(maxPossition, maxLength);
+                jsConsole.writeLine(result.join(", "));
+                jsConsole.writeLine("");
+            }
+        </script>
+	</body>
+</html>

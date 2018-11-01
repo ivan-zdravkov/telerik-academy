@@ -1,0 +1,8 @@
+The file starts here,
+using some substings
+and checking out if the 
+start of file is compared 
+to the finish of it. 
+Something something,
+starting the program now. 
+Bye!

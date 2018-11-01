@@ -1,0 +1,58 @@
+﻿body {
+    font-family: Arial;
+    color: lightgray;
+}
+
+section {
+    width: 360px;
+    background-color: grey;
+}
+
+tr td { 
+    padding: 0px; 
+}
+
+table { 
+    border-collapse: separate; 
+    border-spacing: 12px; 
+}
+
+table h2 {
+    color: lightgrey;
+    font-weight: normal;
+    font-style: normal;
+}
+
+table td:first-child {
+    font-style:italic;
+    color: white;
+    padding-right: 16px;
+    padding-left: 0px;
+    vertical-align: top;
+}
+
+table tr td div {
+    display: inline;
+}
+
+span.circle {
+    border-radius: 50%;
+    width: 2px;
+    height: 2px;
+    background-color: lightgreen;
+}
+
+span.red {
+    font-weight: bold;
+    color: red;
+}
+
+.darkorange {
+    font-weight: bold;
+    color: darkorange;
+}
+
+.bisque  {
+    color: Bisque;
+}
+

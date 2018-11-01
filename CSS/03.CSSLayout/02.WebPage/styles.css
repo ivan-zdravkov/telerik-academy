@@ -1,0 +1,63 @@
+﻿body {
+}
+
+div {
+    background-color: #EEEEEE;
+    border-radius: 12px;
+    width: 420px;
+    margin: 0;
+    padding: 12px;
+}
+
+div h1 {
+    font-size: 20px;
+    font-family: Arial, 'Times New Roman';
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+}
+
+article {
+    background-color: white;
+    border: 1px solid #b3b3b3;
+    width: 380px;
+    text-align: right;
+    padding: 16px;
+    margin: 40px 0 32px 0;
+    overflow: hidden;
+}
+
+article p {
+    text-align: left;
+    margin: 0;
+}
+
+img {
+    float: left;
+    text-wrap: normal;
+    margin: 0 16px 0 0;
+}
+
+button {
+    border-color: #800;
+    color: white;
+    padding-left: 16px;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+button.large {
+    height: 28px;
+    width: 80px;
+    background: url('Images/LargeImage.png');  
+}
+
+button.small {
+    height: 28px;
+    width: 60px;
+    background: url('Images/SmallImage.png');  
+}
+
+button:hover {
+    cursor: pointer;
+}

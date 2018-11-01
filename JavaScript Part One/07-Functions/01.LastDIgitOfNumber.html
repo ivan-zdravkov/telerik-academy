@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Last Digit Of Number</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Enter a number and print it's last digit as a string</span><br />
+
+        <label for="inputOne">Number:</label>
+        <input type="text" id="inputOne" /><br />
+
+        <button onclick="getLastDigit()">Get Digit</button>
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+            function getLastDigit() {
+                var number = jsConsole.readFloat("#inputOne");
+                jsConsole.writeLine(getString(number % 10));
+			}
+
+            function getString(number) {
+			    switch (number) {
+			        case 0: return "zero";
+			        case 1: return "one";
+			        case 2: return "two";
+			        case 3: return "three";
+			        case 4: return "four";
+			        case 5: return "five";
+			        case 6: return "six";
+			        case 7: return "seven";
+			        case 8: return "eight";
+			        case 9: return "nine";
+			    }
+			}
+		</script>
+	</body>
+</html>

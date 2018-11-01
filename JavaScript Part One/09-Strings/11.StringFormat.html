@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>String Format</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Write a function that formats a string using placeholders</span><br />
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+            String.prototype.replaceAll = function (find, replace, str) {
+                jsConsole.writeLine("1");
+                return str.replace(new RegExp(find, 'g'), replace);
+            }
+
+            function stringFormat(string)
+            {
+                for (var i = 0, len = arguments.length; i < len; i++)
+                {
+                    var holder = "{" + i + "}";
+                    index = string.indexOf(holder);
+                    while (index != -1)
+                    {
+                        string = string.replace(holder, arguments[i + 1]);
+                        index = string.indexOf(holder);
+                    }      
+                }
+                return string;
+            }
+
+            var str = stringFormat("Hello {0}!", "Peter");
+            jsConsole.writeLine(str);
+
+            str = stringFormat("So lets {0} something a bit {1}, shall we ? I will now {0} to add several {2}, some of which are {3} {2} and some {2} are in mixxed {4}",
+                "try", "different", "placeholders", "repeating", "order");
+            jsConsole.writeLine(str);
+		</script>
+	</body>
+</html>

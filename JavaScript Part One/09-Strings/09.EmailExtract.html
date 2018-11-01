@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Email Extract</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Write a function for extractiong all email addresses from given text.</span><br />
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+            var text = "This is some text with emails. Johny@abv.bg is one of the, Johny@gmail.com is another and the last one is Peter@yahoo.com";
+            jsConsole.writeLine(text);
+
+            var result = text.match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/ig);
+            for (i in result)
+            {
+                jsConsole.writeLine(result[i]);
+            }
+		</script>
+	</body>
+</html>

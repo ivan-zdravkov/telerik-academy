@@ -1,0 +1,42 @@
+﻿<html>
+	<head>
+		<title>Is Prime</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<span>Check if a number is prime<span><br />
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+            function IsPrime(number) {
+                var isPrime = true;
+                for (var i = 2; i < Math.sqrt(number); i++)
+                {
+                    if (number % i == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                return isPrime
+            }
+
+            var number1 = 12;
+            var number2 = 13;
+            var number3 = 400;
+            var number4 = 727;
+
+            jsConsole.writeLine(number1 + " prime? -> " + IsPrime(number1));
+            jsConsole.writeLine(number2 + " prime? -> " + IsPrime(number2));
+            jsConsole.writeLine(number3 + " prime? -> " + IsPrime(number3));
+            jsConsole.writeLine(number4 + " prime? -> " + IsPrime(number4));
+
+		</script>
+	</body>
+</html>

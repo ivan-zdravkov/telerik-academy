@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<title>Finding Most Frequent</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Find the most frequent number in an array</span><br />
+		
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+			document.onload(FindMostFrequent());
+		
+			function FindMostFrequent() {
+			    var numberOfArrays = 5;
+			    var numberOfElementsInArray = 20;
+
+			    var array = new Array(numberOfArrays);
+			    for (var i = 0; i < array.length; i++) {
+			        array[i] = new Array(numberOfElementsInArray);
+			        for (var j = 0; j < array[i].length; j++) {
+			            array[i][j] = Math.floor((Math.floor(Math.random() * 10)) / 2 + 1); // random number [1 - 5]
+			        }
+			        Find(array[i]);
+			    }
+			}
+
+			function Find(array) {
+			    var max = Math.floor(GetMax(array));
+			    var min = Math.floor(GetMin(array));
+
+			    var frequency = new Array(max);
+
+			    for (var i = 0; i < max; i++)
+			    {
+			        frequency[i] = 0;
+			    }
+
+			    for (var i = 0; i < array.length; i++)
+			    {
+			        frequency[array[i]]++;
+			    }
+
+			    var mostFrequentNumber = GetMax(frequency);
+			    var mostFrequentPossition = frequency.indexOf(mostFrequentNumber);
+
+			    jsConsole.writeLine(array.join(", "));
+			    jsConsole.writeLine("Number " + mostFrequentPossition + " = " + mostFrequentNumber + " times");
+			}
+
+			function GetMax(numbers) {
+			    var max = numbers[0];
+			    for (var j = 1; j < numbers.length; j++) {
+			        if (max < numbers[j]) {
+			            max = numbers[j];
+			        }
+			    }
+			    return max;
+			}
+
+			function GetMin(numbers) {
+			    var min = numbers[0];
+			    for (var j = 1; j < numbers.length; j++) {
+			        if (min > numbers[j]) {
+			            min = numbers[j];
+			        }
+			    }
+			    return min;
+			}
+		</script>
+	</body>
+</html>

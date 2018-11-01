@@ -1,0 +1,46 @@
+body {
+    background-color: #A9A9A9;
+}
+
+h1 {
+    color: #FAFAD2;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    background-color: #D3D3D3;
+}
+
+body > header {
+    text-align: center;
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav ul li a{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+section article footer p{
+    font-size: 12px;
+    font-style:italic;
+    text-align: left;
+}
+
+body footer {
+    font-size: 18px;
+    /*font-weight: bold;*/
+    text-align: center;
+}

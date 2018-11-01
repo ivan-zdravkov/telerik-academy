@@ -1,0 +1,78 @@
+<html>
+<head>
+    <title>Check Neighbours</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+
+<body>
+    <span>Check if the elements at a given position is bigger than its two neighbours</span><br />
+
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+
+    <script>
+        document.onload = buildArray();
+
+        function buildArray() {
+
+            var numberOfArrays = 5;
+            var numberOfElementsInArray = 20;
+            var numbersRange = 100;
+
+            var array = new Array(numberOfArrays);
+
+            for (var i = 0; i < array.length; i++) {
+
+                array[i] = new Array(numberOfElementsInArray);
+
+                for (var j = 0; j < array[i].length; j++) {
+                    array[i][j] = (Math.floor(Math.random() * numbersRange)); // random number [0 - 9]
+                }
+
+                jsConsole.writeLine(array[i].join(", "));
+                jsConsole.writeLine("The first element in the array that is bigger than it's 2 neighbours is " + findFirstBigger(array[i]));
+                jsConsole.writeLine("");
+            }
+        }
+
+        function findFirstBigger(array) {
+            for (var j = 0; j < array.length; j++) {
+                var isBigger = checkElement(array, j);
+                if (isBigger)
+                {
+                    return j;
+                }
+            }
+            return -1;
+        }
+
+        function checkElement(array, position) {
+            if (position == 0) {
+                if (array[0] > array[1]) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else if (position == array.length - 1) {
+                if (array[array.length - 1] > array[array.length] - 2) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                if ((array[position] > array[position - 1]) && (array[position] > array[position + 1])) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

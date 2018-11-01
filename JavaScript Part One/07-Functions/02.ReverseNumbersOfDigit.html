@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<title>Digits Reverse</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Reverse the digits of a decimal number</span><br />
+
+        <label for="inputOne">Number:</label>
+        <input type="text" id="inputOne" /><br />
+
+        <button onclick="reverse()">Reverse</button>
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>	
+            function reverse() {
+                var number = Math.floor(jsConsole.readFloat("#inputOne"));
+                var input = number;
+
+                var numberArray = new Array();
+                var index = 0;
+
+                while (number != 0)
+                {
+                    numberArray[index] = number % 10;
+                    index++;
+                    number = Math.floor(number / 10);
+                }
+                
+                var result = 0;
+                do
+                {
+                    var digit = numberArray[numberArray.length - index];
+                    result += formNumber(digit, index);
+                    index--;
+                } while (index != 0);
+
+                jsConsole.writeLine("Number: " + input);
+                jsConsole.writeLine("Result: " + result);
+            }
+
+            function formNumber (number, power)
+            {
+                var decimalPower = 1;
+                for (var i = 0; i < power - 1; i++)
+                {
+                    decimalPower *= 10;
+                }
+                return decimalPower * number;
+            }
+		</script>
+	</body>
+</html>

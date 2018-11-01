@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>Greatest Of Five</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Find the max and min number from a sequence of numbers!</span><br />
+		<label for="inputOne">Number: </label>
+		<input type="text" id="inputOne" /><br />
+		
+		<input type="button" value="Add" onclick="Add()" /> <br />
+		<input type="button" value="Get Min & Max" onclick="GetMinMax()" />
+		
+		
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		
+		<script>
+			var numbers = new Array();
+			
+			function Add() {
+				var temp = jsConsole.readFloat("#inputOne");
+				numbers[numbers.length] = temp;
+				jsConsole.writeLine(temp + " added to sequence!");
+			}
+			
+			function GetMinMax() {
+				jsConsole.writeLine("");
+				jsConsole.writeLine("The MAX is: " + GetMax());
+				jsConsole.writeLine("The MIN is " + GetMin());
+			}
+			
+			function GetMax() {
+				var max = numbers[0];
+				for (var j = 1; j < numbers.length; j++)
+				{
+					if (max < numbers[j])
+					{
+						max = numbers[j];
+					}
+				}
+				return max;
+			}
+			
+			function GetMin() {
+				var min = numbers[0];
+				for (var j = 1; j < numbers.length; j++)
+				{
+					if (min > numbers[j])
+					{
+						min = numbers[j];
+					}
+				}
+				return min;
+			}
+		</script>
+	</body>
+</html>

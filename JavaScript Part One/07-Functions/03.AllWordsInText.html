@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<title>Word In Text</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Enter text and word to find in that text</span><br />
+
+        <label for="inputText">Text: &nbsp</label>
+        <input type="text" value="In publishing and graphic design, lorem ipsum is a placeholder text commonly used to demonstrate the graphic elements of a document or visual presentation, such as font, typography, and layout, by removing the distraction of meaningful content. the lorem ipsum text is typically a mangled section of de finibus bonorum et malorum, a 1st-century bc latin text by cicero, with words altered, added, and removed that make it nonsensical and not proper latin." id="inputText" /><br />
+
+        <label for="inputWord">Word: </label>
+        <input type="text" value="Text" id="inputWord"/><br />
+
+        <button onclick="generateText(true)">Case Sensitive</button>
+        <button onclick="generateText(false)">Case Not Sensitive</button>
+		 
+        <div id="js-console"></div>
+        <script src="scripts/js-console.js"></script>
+
+		<script>
+            function generateText(caseSensitivity) {
+                var text = jsConsole.read("#inputText");
+                var word = jsConsole.read("#inputWord");
+                FindWordOccurance(text, word, caseSensitivity);
+            }
+		
+            function FindWordOccurance(text, word, caseSensitivity) {
+                if (!caseSensitivity)
+                {
+                    text = text.toLowerCase();
+                    word = word.toLowerCase();
+                }                
+
+                var words = text.split(" ");
+
+                for (var i = 0; i < words.length; i++)
+                {
+                    var lastLetter = words[i].slice(-1);
+                    var onlyLetters = /^[a-zA-Z]*$/.test(lastLetter);
+                    if (!onlyLetters)
+                    {
+                        words[i] = words[i].substring(0, words[i].length - 1); // Removing the last symbol if it is not a letter!
+                    }
+                }
+
+			    var numberOfWords = 0;
+			    var index = 0;
+			    var startIndex = 0;
+
+			    do
+                {
+			        index = words.indexOf(word, startIndex);
+			        if (index != -1)
+			        {
+			            startIndex = index + 1;
+			            numberOfWords++;
+			        }
+			    } while (index != -1)
+
+			    jsConsole.writeLine("Case Sensitivity: " + caseSensitivity);
+			    jsConsole.writeLine("Number of words: " + numberOfWords);
+			    jsConsole.writeline(" ");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<title>Tag Cloud</title>
+	</head>
+	
+	<body>
+		<span>Create a tag cloud</span><br />
+		 
+		<script>
+            var tags = ["cms", "javascript", "js", "ASP.NET MVC", "asp.net", ".net", "wp", ".net", "css", "javascript", "asp.net", "wordpress", "xaml", "js", "http", "web", "asp.net", "asp.net MVC", "asp.net MVC", "ASP.NET MVC", "wp", "javascript", "js", "cms", "html", "javascript", "http", "http", "CMS"];
+
+            var tagCloud = generateTagCloud(tags, 17, 42);
+
+            function generateTagCloud(tags, minFont, maxFont)
+            {
+                var wordsNumber = 0;
+                var dictionary = {};
+
+                var min = 0;
+                var max = 0;
+                for (var i = 0, len = tags.length; i < len; i++)
+                {
+                    if (!dictionary.hasOwnProperty(tags[i].toLowerCase()))
+                    {
+                        dictionary[tags[i].toLowerCase()] = 1;
+                        if (min < dictionary[tags[i].toLowerCase()])
+                        {
+                            min = dictionary[tags[i].toLowerCase()];
+                        }
+                        wordsNumber++;
+                    }
+                    else
+                    {
+                        dictionary[tags[i].toLowerCase()]++;
+                        if (dictionary[tags[i].toLowerCase()] > max)
+                        {
+                            max = dictionary[tags[i].toLowerCase()];
+                        }
+                    }
+                }
+
+                var stepSpace = (maxFont - minFont) / (max - min); // The space at which the font steps are increasing [17-42] The step is 12.5!
+                console.log(stepSpace);
+
+                var content = "";
+                for (var index in dictionary)
+                {
+                    content += '<span id="span' + dictionary[index] + '">' + index + ' </span>';
+                }
+
+                var div = document.createElement("div");
+                div.innerHTML = content;
+                div.style.width = "280px";
+                div.style.border = "2px solid black";
+                div.style.padding = "4px";
+
+                for (var i = min; i <= max; i++)
+                {
+                    var css = "#span" + i +
+                                "{" +
+                                    "font-size: " + Math.floor((minFont + (stepSpace * (i - 1)))) + ";" +
+                                    //"color: " + getRandomColor() + ";" +
+                                    //"text-decoration: underline;" +
+                                    "padding: 4px"
+                                "}";
+
+                    var style = document.createElement('style');
+                    style.appendChild(document.createTextNode(css));
+                    document.head.appendChild(style);
+                }
+
+                document.body.appendChild(div);
+
+                console.log(content);
+            }
+
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF'.split('');
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.round(Math.random() * 15)];
+                }
+                return color;
+            }
+
+		</script>
+	</body>
+</html>

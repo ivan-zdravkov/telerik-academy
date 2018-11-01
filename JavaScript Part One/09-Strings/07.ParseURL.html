@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>URL Parse</title>
+		<link href="styles/js-console.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<span>Write a script that parses an URL address</span><br />
+
+		<div id="js-console"></div>
+		<script src="scripts/js-console.js"></script>
+		 
+		<script>
+            function URL(url) {
+                return {
+                    protocol: url.split("://")[0],
+                    server: url.split("://")[1].split("/")[0],
+                    resource: url.split("://")[1].slice(url.split("://")[1].split("/")[0].length)
+                }
+            }
+
+            var url = "http://www.devbg.org/forum/index.php";
+            var urlElements = URL(url);
+            jsConsole.writeLine("protocol: " + urlElements.protocol);
+            jsConsole.writeLine("server: " + urlElements.server);
+            jsConsole.writeLine("resource: " + urlElements.resource);
+
+		</script>
+	</body>
+</html>

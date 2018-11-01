@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<title>Creating Div Elements</title>
+	</head>
+	<body>
+		<span>Write a script that creates a number of div elements</span><br />
+		 
+		<script>
+            var numberOfDivs = 10;
+            GenerateDivs(numberOfDivs);
+
+            function GenerateDivs(numberOfDivs) {
+                for (var i = 0; i < numberOfDivs; i++)
+                {
+                    var div = document.createElement("div");
+                    div.id = "div" + i;
+                    div.innerHTML = "<strong>div</strong>";
+
+                    var width = 0;
+                    while (width < 20) {
+                        width = Math.floor(Math.random()*100);
+                    }
+
+                    var height = 0;
+                    while (height < 20) {
+                        height = Math.floor(Math.random() * 100);
+                    }
+
+                    var possitionX = Math.floor(Math.random() * 600);
+                    var possitionY = Math.floor(Math.random() * 600);
+
+                    var backgroundColor = getRandomColor();
+                    var fontColor = getRandomColor();
+                    var borderColor = getRandomColor();
+
+                    var borderRadius = Math.floor(Math.random() * 40);
+                    var borderWidth = Math.floor(Math.random() * 20 + 1);
+                    
+                    var css = "#" + div.id +
+                        "{" +
+                            "width: " + width + "px;" +
+                            "height: " + height + "px;" + 
+                            "border: 1px solid black;" + 
+                            "background-color: " + backgroundColor + ";" +
+                            "color: " + fontColor + ";" +
+                            "position:absolute;" +
+                            "left: " + possitionX + "px;" +
+                            "top: " + possitionY + "px;" +
+                            "border-radius: " + borderRadius + "px;" +
+                            "border-color: " + borderColor + ";" +
+                            "border-width: " + borderWidth + ";" + 
+                            "text-align: center;" + 
+                        "}";
+
+                    var style = document.createElement('style');
+
+                    style.appendChild(document.createTextNode(css));
+                    document.head.appendChild(style);
+
+                    document.body.appendChild(div);
+                }
+            }
+
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF'.split('');
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.round(Math.random() * 15)];
+                }
+                return color;
+            }
+		</script>
+	</body>
+</html>
